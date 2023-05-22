@@ -28,11 +28,16 @@ public class GlobalExceptionHandler {
         }
         return R.error("未知错误");
     }
-    /**
-     * 员工信息分页查询
-     * @param page
-     * @param pageSize
-     * @param name
-     * @return
+    /*
+     * @description: 
+     * @param ex
+     * @return: xyz.zlflearn.wisdom.common.R<java.lang.String>
+     * @author: Administrator
+     * @time: 2023/2/21 0021 18:48
      */
+    @ExceptionHandler(CustomException.class)
+    public R<String> exceptionHandler(CustomException ex) {
+        log.error(ex.getMessage());
+        return R.error(ex.getMessage());
+    }
 }
